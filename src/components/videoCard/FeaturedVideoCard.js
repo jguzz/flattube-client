@@ -1,6 +1,4 @@
-import React, { Component } from "./node_modules/react";
-
-//Main container to hold our entire Application
+import React from "react";
 
 function FeaturedVideoCard() {
     return (
