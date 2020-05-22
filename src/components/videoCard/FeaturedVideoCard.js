@@ -1,14 +1,18 @@
 import React from "react";
 
-function FeaturedVideoCard() {
-    return (
-      <>
-	  	<h2>Thumbnail</h2>
-		<h4>Title</h4>
-		<h5>Uploader</h5>
-		<h6>Views</h6>
-      </>
-    );
+const FeaturedVideoCard = (props) => {
+    return(
+		
+        <div>
+            <img src={props.video.thumbnailURL} alt={props.video.title}></img>
+            <p>{props.video.title}</p>
+            <p>{props.video.channelTitle}</p>
+            <span>Views: {props.video.viewCount}</span>
+            {/* <span>{props.video.uploadDate}</span> */}
+        </div>
+    )
+
+
 }
 
-export default FeaturedVideoCard;
+export default FeaturedVideoCard
