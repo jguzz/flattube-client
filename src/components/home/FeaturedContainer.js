@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 import React, { Component } from "react";
 import FeaturedVideoCard from "../videoCard/FeaturedVideoCard";
 
