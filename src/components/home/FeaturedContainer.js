@@ -1,5 +1,5 @@
 import React, {  Component } from "react";
-import FeaturedVideoCard from "./FeaturedVideoCard"
+import FeaturedVideoCard from "../videoCard/FeaturedVideoCard"
 
 //Container to display many cards of featured videos
 

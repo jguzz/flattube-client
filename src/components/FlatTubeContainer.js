@@ -15,6 +15,8 @@ class FlatTubeContainer extends Component {
         <FeaturedContainer />
       
         <ResultsContainer/>
+
+        <ShowContainer/>
       </>
     );
   }
