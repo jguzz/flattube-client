@@ -2,14 +2,14 @@ import React from "react";
 
 //Represents a card for each video in the results container.
 
-function Video() {
+function VideoCard() {
 
     return (
       <>
-        <h1>Video</h1>
+		<h5>VideoCard</h5>
       </>
     );
   
 }
 
-export default Video;
+export default VideoCard;
