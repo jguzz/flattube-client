@@ -1,11 +1,15 @@
 import React, { Fragment, Component } from "react";
-// import NavContainer from '../nav/NavContainer'
+ import NavBarContainer from './navbar/NavBarContainer'
 
 //Main container to hold our entire Application
 
 class FlatTubeContainer extends Component {
   render() {
-    return <>FlatTubeContainer</>;
+    return (
+    <>
+    <NavBarContainer/>
+    </>
+      );
   }
 }
 
