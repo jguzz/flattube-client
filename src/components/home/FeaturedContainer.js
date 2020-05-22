@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 import React, { Component } from "react";
 import FeaturedVideoCard from "../videoCard/FeaturedVideoCard";
 
@@ -5,12 +6,9 @@ import FeaturedVideoCard from "../videoCard/FeaturedVideoCard";
 
 class FeaturedContainer extends Component {
   render() {
-    return (
-      <>
-        Featured Container
-        <FeaturedVideoCard />
-      </>
-    );
+ 
+      return (<>{this.props.videos.map(video => <FeaturedVideoCard key={video.id} video={video}/>)} </>);
+  
   }
 }
 
