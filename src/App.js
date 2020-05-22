@@ -1,11 +1,12 @@
-import React from 'react';
-import './App.css';
+import React, { Fragment } from "react";
+import "./App.css";
+import FlatTubeContainer from "./components/FlatTubeContainer";
 
 function App() {
   return (
-    <div className="App">
-        App
-    </div>
+    <>
+      <FlatTubeContainer />
+    </>
   );
 }
 

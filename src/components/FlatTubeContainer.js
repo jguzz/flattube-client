@@ -1,14 +1,12 @@
-import React, {Fragment} from 'react';
-import NavContainer from '../nav/NavContainer'
+import React, { Fragment, Component } from "react";
+// import NavContainer from '../nav/NavContainer'
 
 //Main container to hold our entire Application
 
-function App() {
-  return (
-    <>
-        App
-    </>
-  );
+class FlatTubeContainer extends Component {
+  render() {
+    return <>FlatTubeContainer</>;
+  }
 }
 
-export default App;
+export default FlatTubeContainer;
