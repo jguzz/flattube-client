@@ -5,8 +5,8 @@ import FeaturedVideoCard from "../videoCard/FeaturedVideoCard";
 
 class FeaturedContainer extends Component {
   render() {
- 
-      return (<>{this.props.videos.map(video => <FeaturedVideoCard key={video.id} video={video}/>)} </>);
+    return <>FeaturedContainer</>
+      // return (<>{this.props.videos.map(video => <FeaturedVideoCard key={video.id} video={video}/>)} </>);
   
   }
 }

@@ -1,6 +1,6 @@
 import React, { Fragment } from "react";
-import "./App.css";
 import FlatTubeContainer from "./components/FlatTubeContainer";
+import 'bootstrap/dist/css/bootstrap.min.css'
 
 function App() {
   return (

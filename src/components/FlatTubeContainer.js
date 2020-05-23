@@ -9,11 +9,11 @@ class FlatTubeContainer extends Component {
   state = {
     videos: [],
   };
-  componentDidMount() {
-    fetch(VIDEOS)
-      .then((resp) => resp.json())
-      .then((videos) => this.setState({ videos: videos }));
-  }
+  // componentDidMount() {
+  //   fetch(VIDEOS)
+  //     .then((resp) => resp.json())
+  //     .then((videos) => this.setState({ videos: videos }));
+  // }
 
   render() {
     return (
