@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import NavBarContainer from "./navbar/NavBarContainer";
+// import NavBarContainer from "./navbar/NavBarContainer";
 import FeaturedContainer from "./home/FeaturedContainer";
 import ResultsContainer from "./search/ResultsContainer";
 import ShowContainer from "./show/ShowContainer";
@@ -18,7 +18,7 @@ class FlatTubeContainer extends Component {
   render() {
     return (
       <>
-        <NavBarContainer />
+        {/* <NavBarContainer /> */}
         <br /> <br />
         <FeaturedContainer videos={this.state.videos} />
         <ResultsContainer />
