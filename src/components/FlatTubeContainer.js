@@ -9,11 +9,13 @@ class FlatTubeContainer extends Component {
   state = {
     videos: [],
   };
-  // componentDidMount() {
-  //   fetch(VIDEOS)
-  //     .then((resp) => resp.json())
-  //     .then((videos) => this.setState({ videos: videos }));
-  // }
+  componentDidMount() {
+    fetch(VIDEOS)
+      .then(resp => resp.json())
+      .then(videos => this.setState({ videos: videos }, function () {
+        console.log(this.state.videos[0]);
+    }));
+  }
 
   render() {
     return (
@@ -21,8 +23,8 @@ class FlatTubeContainer extends Component {
         {/* <NavBarContainer /> */}
         <br /> <br />
         <FeaturedContainer videos={this.state.videos} />
-        <ResultsContainer />
-        <ShowContainer />
+        {/* <ResultsContainer />
+        <ShowContainer /> */}
       </>
     );
   }
