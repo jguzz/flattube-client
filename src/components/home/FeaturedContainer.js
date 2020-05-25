@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import FeaturedVideoCard from "../videoCard/FeaturedVideoCard";
 import Container from "react-bootstrap/Container"
-import Video from '../show/Video/Video.js'
+import Video from '../show/video/Video.js'
 
 //Container to display many cards of featured videos
 
@@ -17,7 +17,6 @@ class FeaturedContainer extends Component {
     console.log('clicked')
   }
   render() {
-    console.log(this.props.videos[0])
     return (<Container>
       {(this.state.isClicked) ? <Video video={this.state.currentVideo} /> : this.props.videos.map(video => <FeaturedVideoCard onClick={this.handleClick} key={video.id} video={video} />)}
     </Container>)

@@ -22,7 +22,7 @@ class FlatTubeContainer extends Component {
       <>
         {/* <NavBarContainer /> */}
         <br /> <br />
-        <FeaturedContainer videos={this.state.videos} />
+        {/* <FeaturedContainer videos={this.state.videos} /> */}
         {/* <ResultsContainer />
         <ShowContainer /> */}
       </>
