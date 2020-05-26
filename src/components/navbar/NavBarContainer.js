@@ -35,13 +35,13 @@ function NavBarContainer() {
           </NavDropdown>
 
           <Nav.Item>
-            {false ? (
+            {true ? (
               <Nav.Link>
-                <LogOut />{" "}
+                <Link to="/signup">SignUp</Link>
               </Nav.Link>
             ) : (
               <Nav.Link>
-                <Login />
+                <Link to="/login">Login</Link>
               </Nav.Link>
             )}
           </Nav.Item>
