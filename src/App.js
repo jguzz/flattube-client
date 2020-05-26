@@ -17,7 +17,7 @@ class App extends React.Component {
     validatePassword: "",
     age: 0,
     profilePic: "",
-    currentUser: {},
+    currentUser: {loggedIn: false},
   };
   componentDidMount() {
     fetch(VIDEOS)
@@ -36,19 +36,27 @@ class App extends React.Component {
   handleSignUp = (e) => {
     e.preventDefault();
     if (this.state.password === this.state.validatePassword) {
-      this.setState({
-        currentUser: {
-          username: this.state.username,
-          password: this.state.password,
-          age: this.state.age,
-          profilePic: this.state.profilePic,
-          loggedIn: true
+      this.setState(
+        {
+          currentUser: {
+            username: this.state.username,
+            password: this.state.password,
+            age: this.state.age,
+            profilePic: this.state.profilePic,
+            loggedIn: true,
+          },
         },
-      }, () => console.log(this.state.currentUser))
+        () => console.log(this.state.currentUser)
+      );
     } else {
       alert("Passwords do not match :(");
     }
   };
+  // Will taggle the current users loggedIn attribute to t or f.
+  toggleLoggedIn = (e) => {
+    e.preventDefault()
+    this.setState({currentUser: {...this.state.currentUser, loggedIn: !this.state.currentUser.loggedIn}})
+  }
   // postUser = () => {
   //   fetch()
   // }
@@ -59,10 +67,11 @@ class App extends React.Component {
       username,
       age,
       profilePic,
+      currentUser
     } = this.state;
     return (
       <>
-        <NavBarContainer />
+        <NavBarContainer toggleLoggedIn={this.toggleLoggedIn} currentUser={currentUser} />
         <Switch>
           <Route path="/results" render={() => <ResultsContainer />} />
           <Route

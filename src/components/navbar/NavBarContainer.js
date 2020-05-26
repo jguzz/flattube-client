@@ -8,7 +8,7 @@ import Container from "react-bootstrap/Container";
 import NavDropdown from "react-bootstrap/NavDropdown";
 import { Link, NavLink } from "react-router-dom";
 
-function NavBarContainer() {
+function NavBarContainer({currentUser, toggleLoggedIn}) {
   return (
     <>
       <Navbar>
@@ -35,13 +35,14 @@ function NavBarContainer() {
           </NavDropdown>
 
           <Nav.Item>
-            {true ? (
-              <Nav.Link>
-                <Link to="/signup">SignUp</Link>
+            {currentUser.loggedIn ? (
+              <Nav.Link onClick={toggleLoggedIn}>
+                Log Out
               </Nav.Link>
             ) : (
               <Nav.Link>
-                <Link to="/login">Login</Link>
+                <Link to="/signup">SignUp</Link>
+                {/* <Link to="/login">Login</Link> */}
               </Nav.Link>
             )}
           </Nav.Item>
