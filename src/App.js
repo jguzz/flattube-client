@@ -7,6 +7,7 @@ import FeaturedContainer from "./components/home/FeaturedContainer";
 import ResultsContainer from "./components/search/ResultsContainer";
 import ShowContainer from "./components/show/ShowContainer";
 import SignUp from "./components/navbar/login/SignUp";
+import Login from "./components/navbar/login/Login";
 
 const VIDEOS = "http://localhost:3000/videos";
 class App extends React.Component {
@@ -17,7 +18,7 @@ class App extends React.Component {
     validatePassword: "",
     age: 0,
     profilePic: "",
-    currentUser: {loggedIn: false},
+    currentUser: { loggedIn: false },
   };
   componentDidMount() {
     fetch(VIDEOS)
@@ -54,12 +55,28 @@ class App extends React.Component {
   };
   // Will taggle the current users loggedIn attribute to t or f.
   toggleLoggedIn = (e) => {
-    e.preventDefault()
-    this.setState({currentUser: {...this.state.currentUser, loggedIn: !this.state.currentUser.loggedIn}})
-  }
+    e.preventDefault();
+    this.setState({
+      currentUser: {
+        ...this.state.currentUser,
+        loggedIn: !this.state.currentUser.loggedIn,
+      },
+    });
+  };
   // postUser = () => {
   //   fetch()
   // }
+  onSubmitClick = (e,loginObj) => {
+    e.preventDefault()
+    console.log(loginObj)
+    if (loginObj.username === this.state.currentUser.username && loginObj.password === this.state.currentUser.password){
+      this.toggleLoggedIn()
+    } else {
+      alert('No user with that username and password combo!')
+      console.log(this.state.currentUser)
+    }
+
+  }
   render() {
     const {
       validatePassword,
@@ -67,13 +84,17 @@ class App extends React.Component {
       username,
       age,
       profilePic,
-      currentUser
+      currentUser,
     } = this.state;
     return (
       <>
-        <NavBarContainer toggleLoggedIn={this.toggleLoggedIn} currentUser={currentUser} />
+        <NavBarContainer
+          toggleLoggedIn={this.toggleLoggedIn}
+          currentUser={currentUser}
+        />
         <Switch>
           <Route path="/results" render={() => <ResultsContainer />} />
+          <Route path="/login" render={() => <Login onSubmitClick={this.onSubmitClick}/>} />
           <Route
             path="/signup"
             render={() => (

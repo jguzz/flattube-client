@@ -22,7 +22,7 @@ function SignUp({
           <input name="password" value={password} />
         </label>
         <label>
-          Password
+          Validate Password
           <input name="validatePassword" value={validatePassword} />
         </label>
         <label>

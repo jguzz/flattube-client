@@ -41,8 +41,8 @@ function NavBarContainer({currentUser, toggleLoggedIn}) {
               </Nav.Link>
             ) : (
               <Nav.Link>
-                <Link to="/signup">SignUp</Link>
-                {/* <Link to="/login">Login</Link> */}
+                <Link to="/signup" style={{padding: '10px'}}>SignUp</Link>
+                <Link to="/login">Login</Link>
               </Nav.Link>
             )}
           </Nav.Item>
