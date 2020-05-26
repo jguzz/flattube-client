@@ -8,7 +8,7 @@ import Container from "react-bootstrap/Container";
 import NavDropdown from "react-bootstrap/NavDropdown";
 import { Link, NavLink } from "react-router-dom";
 
-function NavBarContainer() {
+function NavBarContainer(props) {
   return (
     <>
       <Navbar>
@@ -17,7 +17,7 @@ function NavBarContainer() {
             <Link to="/">FlatTube</Link>
           </Navbar.Brand>
           <Nav.Item>
-            <SearchBar />
+            <SearchBar videos={props.videos} />
           </Nav.Item>
           {/* Dropdown of site map */}
           <NavDropdown title="Go To" id="basic-nav-dropdown">

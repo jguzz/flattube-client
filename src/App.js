@@ -6,6 +6,7 @@ import NavBarContainer from "./components/navbar/NavBarContainer";
 import FeaturedContainer from "./components/home/FeaturedContainer";
 import ResultsContainer from "./components/search/ResultsContainer";
 import ShowContainer from "./components/show/ShowContainer";
+import FlatTubeContainer from "./components/FlatTubeContainer";
 
 const VIDEOS = "http://localhost:3000/videos";
 class App extends React.Component {
@@ -16,18 +17,17 @@ class App extends React.Component {
     fetch(VIDEOS)
       .then((resp) => resp.json())
       .then((videos) =>
-        this.setState({ videos: videos }, function () {
-          console.log(this.state.videos[0]);
-        })
+        this.setState({ videos: videos }
+        )
       );
   }
   render() {
     return (
       <>
-        <NavBarContainer />
+        <NavBarContainer videos={this.state.videos}/>
         <Switch>
           <Route path="/results" render={() => <ResultsContainer />} />
-          <Route path="/" render={() => <FeaturedContainer videos={this.state.videos} />} />
+          <Route path="/" render={() => <FlatTubeContainer videos={this.state.videos} />} />
         </Switch>
       </>
     );

@@ -1,17 +1,18 @@
 import React from "react";
+import Video from "../show/Video/Video";
 
 //Represents a card for each video in the results container.
 
-function VideoCard() {
+function VideoCard(props) {
 
     return (
       <>
-        <h2>Thumbnail</h2>
-		<h4>Title</h4>
-		<h5>Uploader</h5>
-		<h5>Views</h5>
-		<h5>Upload Date</h5>
-		<h5>Description</h5>
+        <div onClick={() => {props.onClick(props.video.id)}}>
+            <img src={props.video.thumbnailURL} width={props.video.thumbnail_width} height={props.video.thumbnail_height} alt={props.video.title}></img>
+            <p>{props.video.title}</p>
+            <p>{props.video.channelTitle}</p>
+            <span>Views: {props.video.views}</span>
+        </div>
       </>
     );
   
