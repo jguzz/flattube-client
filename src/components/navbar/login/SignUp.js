@@ -1,29 +1,39 @@
 import React from "react";
 
-function SignUp() {
+function SignUp({
+  handleChange,
+  validatePassword,
+  password,
+  username,
+  age,
+  profilePic,
+  handleSignUp
+}) {
   return (
     <>
-      <form>
+      <form onChange={handleChange} onSubmit={handleSignUp}>
+        SignUp
         <label>
           Username
-          <input />
+          <input name="username" type="text" value={username} />
         </label>
         <label>
           Password
-          <input />
+          <input name="password" value={password} />
         </label>
         <label>
           Password
-          <input />
+          <input name="validatePassword" value={validatePassword} />
         </label>
         <label>
           age
-          <input/>
+          <input name="age" type="number" value={age} />
         </label>
         <label>
           Profile Pic
-          <input />
+          <input name="profilePic" type="text" value={profilePic} />
         </label>
+		<input type="submit"/>
       </form>
     </>
   );
