@@ -2,12 +2,12 @@ import React from "react";
 
 //Represents a card for each video in the results container.
 
-function Comment() {
+function Comment(props) {
 
     return (
       <>
-		<h4>Username</h4>
-		<h5>Comment</h5>
+		<h4>{props.user.username}</h4>
+		<h5>{props.text}</h5>
       </>
     );
   

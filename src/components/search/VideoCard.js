@@ -1,5 +1,5 @@
 import React from "react";
-import Video from "../show/Video/Video";
+// import Video from "../show/Video/Video";
 
 //Represents a card for each video in the results container.
 

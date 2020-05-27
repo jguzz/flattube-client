@@ -21,7 +21,7 @@ class FlatTubeContainer extends Component {
       <>
         {/* <NavBarContainer /> */}
         <br /> <br />
-        <FeaturedContainer videos={this.props.videos} />
+        {this.props.searchClicked ? <ResultsContainer user={this.props.currentUser} videos={this.props.searchResults}/> : <FeaturedContainer user={this.props.currentUser} videos={this.props.videos} />}
         
         {/* <ResultsContainer />
         <ShowContainer /> */}

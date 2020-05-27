@@ -11,6 +11,7 @@ import ShowContainer from "./components/show/ShowContainer";
 
 import SignUp from "./components/navbar/login/SignUp";
 import Login from "./components/navbar/login/Login";
+import FlatTubeContainer from "./components/FlatTubeContainer";
 // URLS
 const VIDEOS = "http://localhost:3000/videos";
 const USERS = "http://localhost:3000/users";
@@ -29,6 +30,9 @@ class App extends React.Component {
     name: "",
     // our logged in user
     currentUser: { loggedIn: false },
+    searchClicked: false,
+    search: "",
+    searchResults: []
   };
   componentDidMount() {
     this.fetchVideos();
@@ -110,8 +114,28 @@ class App extends React.Component {
     e.preventDefault();
     console.log(loginObj);
     const loginThisUser = this.state.users.find(user => user.username === loginObj.username)
-    loginThisUser ? this.setState({currentUser: {loggedIn: true, ...loginThisUser}}) : alert("No user with that username and password combo!")
+    loginThisUser ? this.setState({ currentUser: { loggedIn: true, ...loginThisUser } }) : alert("No user with that username and password combo!")
   };
+  handleSearchChange = (event) => {
+    this.setState({ search: event.target.value })
+  }; //handles setting search state
+  handleSearchSubmit = (event) => {
+    event.preventDefault()
+    let results = []
+    this.state.videos.filter(video => {
+      if (video.title.toLowerCase().includes(this.state.search.toLowerCase())) {
+        results.push(video)
+      }
+      else if (video.description.toLowerCase().includes(this.state.search.toLowerCase())) {
+        results.push(video)
+      }
+      else if (video.channelTitle.toLowerCase().includes(this.state.search.toLowerCase())) {
+        results.push(video)
+      }
+    })
+    this.setState({ searchResults: results })
+    this.setState({ searchClicked: true })
+  }; //handles search submit
   render() {
     const {
       validatePassword,
@@ -122,15 +146,16 @@ class App extends React.Component {
       name,
       currentUser,
     } = this.state;
+    console.log(this.state.currentUser)
     return (
       <>
         <NavBarContainer videos={this.state.videos}
           toggleLoggedIn={this.toggleLoggedIn}
-          currentUser={currentUser}
-          />
+          currentUser={currentUser} search={this.handleSearchChange} submit={this.handleSearchSubmit}
+        />
         <Switch>
-          {/* <Route path="/" render={() => <FlatTubeContainer videos={this.state.videos} />} /> */}
           <Route path="/results" render={() => <ResultsContainer />} />
+          {/* <Route path="/featured" render={() => <FeaturedContainer />} /> */}
           <Route
             path="/login"
             render={() => <Login onSubmitClick={this.onSubmitClick} />}
@@ -147,9 +172,8 @@ class App extends React.Component {
           />
           <Route
             path="/"
-            render={() => <FeaturedContainer videos={this.state.videos} />}
+            render={() => <FlatTubeContainer searchClicked={this.state.searchClicked} videos={this.state.videos} searchResults={this.state.searchResults} currentUser={this.state.currentUser}/>}
           />
->>>>>>> creating-login
         </Switch>
       </>
     );
