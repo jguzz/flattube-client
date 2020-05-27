@@ -30,10 +30,10 @@ class App extends React.Component {
     name: "",
     // our logged in user
     currentUser: { loggedIn: false },
-    like: {
-      userId: null,
-      videoId: null,
-    },
+    // like: {
+    //   userId: null,
+    //   videoId: null,
+    // },
     likes: [],
   };
   componentDidMount() {
@@ -87,7 +87,20 @@ class App extends React.Component {
       body: JSON.stringify(likeObj),
     })
       .then((res) => res.json())
-      .then(console.log);
+      .then((like) => this.setState({ likes: [...this.state.likes, like] }));
+  };
+  //Deletes a like
+  deleteLike = (id) => {
+    fetch(LIKES + `/${id}`, {
+      method: "delete",
+      headers: {
+        "Content-Type": "application/json",
+        accept: "application/json",
+      },
+      body: JSON.stringify(id),
+    })
+      .then((res) => res.json())
+      .then(likes=>this.setState({likes}))
   };
 
   // ==================FUNCTIONS============================
@@ -141,12 +154,19 @@ class App extends React.Component {
       ? this.setState({ currentUser: { loggedIn: true, ...loginThisUser } })
       : alert("No user with that username and password combo!");
   };
-
+  //Handles liking a video
   handleLike = (e, id) => {
     e.preventDefault();
-    console.log(`liked video with the id`, id);
-    this.postLike({user_id: this.state.currentUser.id, video_id: id});
+    const likeObj = this.state.likes.find(
+      (like) =>
+        like.video_id === id && like.user_id === this.state.currentUser.id
+    );
+    likeObj
+      ? this.deleteLike(likeObj.id)
+      : this.postLike({ user_id: this.state.currentUser.id, video_id: id });
   };
+
+  findLikeIdByVideoId = () => {};
 
   // ==================RENDER============================
   render() {
