@@ -100,7 +100,7 @@ class App extends React.Component {
       body: JSON.stringify(id),
     })
       .then((res) => res.json())
-      .then(likes=>this.setState({likes}))
+      .then((likes) => this.setState({ likes }));
   };
 
   // ==================FUNCTIONS============================
@@ -156,17 +156,27 @@ class App extends React.Component {
   };
   //Handles liking a video
   handleLike = (e, id) => {
+    console.log(id)
     e.preventDefault();
-    const likeObj = this.state.likes.find(
-      (like) =>
-        like.video_id === id && like.user_id === this.state.currentUser.id
-    );
-    likeObj
-      ? this.deleteLike(likeObj.id)
-      : this.postLike({ user_id: this.state.currentUser.id, video_id: id });
-  };
+    if (this.state.currentUser.loggedIn) {
+      
+      const likeObj = this.state.likes.find(
+        (like) =>
+          like.video_id === id && like.user_id === this.state.currentUser.id
+      );
+  
+      !likeObj? 
+      this.postLike({ user_id: this.state.currentUser.id, video_id: id })
+        : this.deleteLike(likeObj.id)
+    }
 
-  findLikeIdByVideoId = () => {};
+  }
+
+  displayLikes = (id) => {
+    const likes = this.state.likes.filter((like) => like.video_id === id);
+    console.log(likes);
+    return likes.length;
+  };
 
   // ==================RENDER============================
   render() {
@@ -207,6 +217,7 @@ class App extends React.Component {
             path="/"
             render={() => (
               <FeaturedContainer
+                displayLikes={this.displayLikes}
                 handleLike={this.handleLike}
                 videos={this.state.videos}
               />
