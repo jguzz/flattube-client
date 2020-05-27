@@ -6,7 +6,8 @@ function SignUp({
   password,
   username,
   age,
-  profilePic,
+  img,
+  name,
   handleSignUp
 }) {
   return (
@@ -25,13 +26,17 @@ function SignUp({
           Validate Password
           <input name="validatePassword" value={validatePassword} />
         </label>
+		<label>
+          Name
+          <input name="name" type="text" value={name} />
+        </label>
         <label>
           age
           <input name="age" type="number" value={age} />
         </label>
         <label>
           Profile Pic
-          <input name="profilePic" type="text" value={profilePic} />
+          <input name="img" type="text" value={img} />
         </label>
 		<input type="submit"/>
       </form>
