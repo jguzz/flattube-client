@@ -19,7 +19,7 @@ function Recommended() {
 // }
   return (
     <>
-      <FeaturedVideoCard />
+      {/* <FeaturedVideoCard /> */}
     </>
   );
 }
