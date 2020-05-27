@@ -18,7 +18,7 @@ class FeaturedContainer extends Component {
   }
   render() {
     return (<Container>
-      {(this.state.isClicked) ? <ShowContainer video={this.state.currentVideo} /> : this.props.videos.map(video => <FeaturedVideoCard onClick={this.handleClick} key={video.id} video={video} />)}
+      {(this.state.isClicked) ? <ShowContainer displayLikes={this.props.displayLikes} handleLike={this.props.handleLike} video={this.state.currentVideo} /> : this.props.videos.map(video => <FeaturedVideoCard onClick={this.handleClick} key={video.id} video={video} />)}
     </Container>)
   }
 }

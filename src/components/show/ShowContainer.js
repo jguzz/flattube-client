@@ -9,7 +9,7 @@ class FlatTubeContainer extends Component {
       <>
         SHOW CONTAINER
         <Video video={this.props.video} />
-        <Details video={this.props.video} />
+        <Details displayLikes={this.props.displayLikes} handleLike={this.props.handleLike} video={this.props.video} />
         {/* <CommentsContainer /> */}
         {/* <RecommendedContainer/> */}
       </>
