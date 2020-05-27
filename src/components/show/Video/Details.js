@@ -10,6 +10,7 @@ let date = String(newDate)
 			<h4>{props.video.title}</h4>
 			<h5>Views: {props.video.views}</h5>
 			<h5>Uploaded: {date}</h5>
+			<button onClick={(e) => props.handleLike(e,props.video.id)}>Like</button>
 			<h5>Likes: {props.video.likes}</h5>
 			<br />
 			<h5>{props.video.channelTitle}</h5>
