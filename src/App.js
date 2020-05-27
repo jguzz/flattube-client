@@ -15,6 +15,7 @@ import FlatTubeContainer from "./components/FlatTubeContainer";
 // URLS
 const VIDEOS = "http://localhost:3000/videos";
 const USERS = "http://localhost:3000/users";
+const LIKES = "http://localhost:3000/likes";
 
 class App extends React.Component {
   state = {
@@ -32,22 +33,24 @@ class App extends React.Component {
     currentUser: { loggedIn: false },
     searchClicked: false,
     search: "",
-    searchResults: []
+    searchResults: [],
+    // like: {
+    //   userId: null,
+    //   videoId: null,
+    // },
+    likes: [],
   };
   componentDidMount() {
     this.fetchVideos();
-    this.fetchUsers()
-    // this.postUser()
-    // this.fetchUser()
+    this.fetchUsers();
+    this.fetchLikes();
   }
+  // ==================FETCHES============================
   //Currently the most popular videos
   fetchVideos = () => {
     fetch(VIDEOS)
       .then((resp) => resp.json())
-      .then((videos) =>
-        this.setState({ videos: videos }
-        )
-      );
+      .then((videos) => this.setState({ videos: videos }));
   };
   //Fetches all users
   fetchUsers = () => {
@@ -59,6 +62,52 @@ class App extends React.Component {
         });
       });
   };
+  //Fetch all likes
+  fetchLikes = () => {
+    fetch(LIKES)
+      .then((resp) => resp.json())
+      .then((likes) => this.setState({ likes }));
+  };
+  // Adds a user to the database
+  postUser = (userObj) => {
+    fetch(USERS, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+        accept: "application/json",
+      },
+      body: JSON.stringify(userObj),
+    })
+      .then((res) => res.json())
+      .then(console.log);
+  };
+  postLike = (likeObj) => {
+    fetch(LIKES, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+        accept: "application/json",
+      },
+      body: JSON.stringify(likeObj),
+    })
+      .then((res) => res.json())
+      .then((like) => this.setState({ likes: [...this.state.likes, like] }));
+  };
+  //Deletes a like
+  deleteLike = (id) => {
+    fetch(LIKES + `/${id}`, {
+      method: "delete",
+      headers: {
+        "Content-Type": "application/json",
+        accept: "application/json",
+      },
+      body: JSON.stringify(id),
+    })
+      .then((res) => res.json())
+      .then((likes) => this.setState({ likes }));
+  };
+
+  // ==================FUNCTIONS============================
   // Handles signup change
   handleChange = (e) => {
     this.setState({ [e.target.name]: e.target.value }, () =>
@@ -86,6 +135,7 @@ class App extends React.Component {
       alert("Passwords do not match :(");
     }
   };
+
   // Will taggle the current users loggedIn attribute to t or f.
   toggleLoggedIn = (e) => {
     e.preventDefault();
@@ -96,29 +146,46 @@ class App extends React.Component {
       },
     });
   };
-  // Adds a user to the database
-  postUser = (userObj) => {
-    fetch(USERS, {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-        accept: 'application/json'
-      },
-      body: JSON.stringify(userObj),
-    })
-      .then((res) => res.json())
-      .then(console.log);
-  };
+
   // Handles login
   onSubmitClick = (e, loginObj) => {
     e.preventDefault();
     console.log(loginObj);
-    const loginThisUser = this.state.users.find(user => user.username === loginObj.username)
-    loginThisUser ? this.setState({ currentUser: { loggedIn: true, ...loginThisUser } }) : alert("No user with that username and password combo!")
+    const loginThisUser = this.state.users.find(
+      (user) => user.username === loginObj.username
+    );
+    loginThisUser
+      ? this.setState({ currentUser: { loggedIn: true, ...loginThisUser } })
+      : alert("No user with that username and password combo!");
   };
+  //Handles liking a video
+  handleLike = (e, id) => {
+    console.log(id)
+    e.preventDefault();
+    if (this.state.currentUser.loggedIn) {
+      
+      const likeObj = this.state.likes.find(
+        (like) =>
+          like.video_id === id && like.user_id === this.state.currentUser.id
+      );
+  
+      !likeObj? 
+      this.postLike({ user_id: this.state.currentUser.id, video_id: id })
+        : this.deleteLike(likeObj.id)
+    }
+
+  }
+
+  displayLikes = (id) => {
+    const likes = this.state.likes.filter((like) => like.video_id === id);
+    console.log(likes);
+    return likes.length;
+  };
+
   handleSearchChange = (event) => {
     this.setState({ search: event.target.value })
   }; //handles setting search state
+
   handleSearchSubmit = (event) => {
     event.preventDefault()
     let results = []
@@ -136,6 +203,8 @@ class App extends React.Component {
     this.setState({ searchResults: results })
     this.setState({ searchClicked: true })
   }; //handles search submit
+  
+// ==================RENDER============================
   render() {
     const {
       validatePassword,
@@ -149,9 +218,10 @@ class App extends React.Component {
     console.log(this.state.currentUser)
     return (
       <>
-        <NavBarContainer videos={this.state.videos}
+        <NavBarContainer
+          videos={this.state.videos}
           toggleLoggedIn={this.toggleLoggedIn}
-          currentUser={currentUser} search={this.handleSearchChange} submit={this.handleSearchSubmit}
+          currentUser={this.state.currentUser} search={this.handleSearchChange} submit={this.handleSearchSubmit}
         />
         <Switch>
           <Route path="/results" render={() => <ResultsContainer />} />
@@ -172,8 +242,16 @@ class App extends React.Component {
           />
           <Route
             path="/"
-            render={() => <FlatTubeContainer searchClicked={this.state.searchClicked} videos={this.state.videos} searchResults={this.state.searchResults} currentUser={this.state.currentUser}/>}
-          />
+            render={() => <FlatTubeContainer searchClicked={this.state.searchClicked} videos={this.state.videos} 
+               displayLikes={this.displayLikes} handleLike={this.handleLike} searchResults={this.state.searchResults} currentUser={this.state.currentUser}/>}
+               />
+//             render={() => (
+//               <FeaturedContainer
+//                 displayLikes={this.displayLikes}
+//                 handleLike={this.handleLike}
+//                 videos={this.state.videos}
+//               />
+//             )}
         </Switch>
       </>
     );
