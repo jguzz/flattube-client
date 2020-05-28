@@ -172,7 +172,7 @@ class App extends React.Component {
           />
           <Route
             path="/"
-            render={() => <FlatTubeContainer searchClicked={this.state.searchClicked} videos={this.state.videos} searchResults={this.state.searchResults} currentUser={this.state.currentUser}/>}
+            render={() => <FlatTubeContainer searchClicked={this.state.searchClicked} videos={this.state.videos} searchResults={this.state.searchResults} currentUser={this.state.currentUser} users={this.state.users}/>}
           />
         </Switch>
       </>
