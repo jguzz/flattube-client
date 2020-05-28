@@ -9,7 +9,7 @@ class ShowContainer extends Component {
       <>
         SHOW CONTAINER
         <Video video={this.props.video} />
-        <Details video={this.props.video} />
+        <Details displayLikes={this.props.displayLikes} handleLike={this.props.handleLike} video={this.props.video} />
         <CommentsContainer user={this.props.user} videoId={this.props.video.id} users={this.props.users}/>
         {/* <RecommendedContainer/> */}
       </>
