@@ -9,7 +9,7 @@ function CommentForm(props) {
       <form>
         <label>
           Comment:
-          <input onChange={props.handleChange} type="text" />
+          <input onChange={props.handleChange} type="text" value={props.text} />
         </label>
         <button onClick={props.handleSubmit}>Add Comment</button>
       </form>

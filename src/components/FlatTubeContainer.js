@@ -22,7 +22,7 @@ class FlatTubeContainer extends Component {
         {/* <NavBarContainer /> */}
         <br /> <br />
         {this.props.searchClicked ? <ResultsContainer user={this.props.currentUser} videos={this.props.searchResults} displayLikes={this.props.displayLikes} 
-        handleLike={this.props.handleLike}/> : <FeaturedContainer user={this.props.currentUser} videos={this.props.videos} displayLikes={this.props.displayLikes} handleLike={this.props.handleLike} />}
+        handleLike={this.props.handleLike} users={this.props.users}/> : <FeaturedContainer user={this.props.currentUser} videos={this.props.videos} displayLikes={this.props.displayLikes} handleLike={this.props.handleLike} users={this.props.users} />}
         
         {/* <ResultsContainer />
         <ShowContainer /> */}

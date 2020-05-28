@@ -243,7 +243,7 @@ class App extends React.Component {
           <Route
             path="/"
             render={() => <FlatTubeContainer searchClicked={this.state.searchClicked} videos={this.state.videos} 
-               displayLikes={this.displayLikes} handleLike={this.handleLike} searchResults={this.state.searchResults} currentUser={this.state.currentUser}/>}
+               displayLikes={this.displayLikes} handleLike={this.handleLike} searchResults={this.state.searchResults} currentUser={this.state.currentUser} users={this.state.users}/>}
                />
              {/* render={() => (
                <FeaturedContainer
