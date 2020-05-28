@@ -177,7 +177,7 @@ class App extends React.Component {
   }
 
   displayLikes = (id) => {
-    let likes = this.state.likes.filter((like) => like.video_id === id);
+    const likes = this.state.likes.filter((like) => like.video_id === id);
     console.log(likes);
     return likes.length;
   };
