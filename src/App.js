@@ -177,7 +177,7 @@ class App extends React.Component {
   }
 
   displayLikes = (id) => {
-    const likes = this.state.likes.filter((like) => like.video_id === id);
+    let likes = this.state.likes.filter((like) => like.video_id === id);
     console.log(likes);
     return likes.length;
   };
@@ -245,13 +245,13 @@ class App extends React.Component {
             render={() => <FlatTubeContainer searchClicked={this.state.searchClicked} videos={this.state.videos} 
                displayLikes={this.displayLikes} handleLike={this.handleLike} searchResults={this.state.searchResults} currentUser={this.state.currentUser}/>}
                />
-//             render={() => (
-//               <FeaturedContainer
-//                 displayLikes={this.displayLikes}
-//                 handleLike={this.handleLike}
-//                 videos={this.state.videos}
-//               />
-//             )}
+             {/* render={() => (
+               <FeaturedContainer
+                displayLikes={this.displayLikes}
+                handleLike={this.handleLike}
+                videos={this.state.videos}
+              />
+            )} */}
         </Switch>
       </>
     );
