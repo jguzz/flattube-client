@@ -12,7 +12,7 @@ import { Link, NavLink } from "react-router-dom";
 function NavBarContainer({videos, currentUser, toggleLoggedIn, search, submit}) {
   return (
     <>
-      <Navbar>
+      <Navbar style={{marginBottom: -40, marginTop: 10, paddingBottom:-200}}>
         <Container>
           <Navbar.Brand>
             <Link to="/">FlatTube</Link>
@@ -21,7 +21,7 @@ function NavBarContainer({videos, currentUser, toggleLoggedIn, search, submit}) 
             <SearchBar search={search} submit={submit} />
           </Nav.Item>
           {/* Dropdown of site map */}
-          <NavDropdown title="Go To" id="basic-nav-dropdown">
+          {/* <NavDropdown title="Go To" id="basic-nav-dropdown">
             <NavDropdown.Item>
               <Link to="/results">Results</Link>
             </NavDropdown.Item>
@@ -33,7 +33,7 @@ function NavBarContainer({videos, currentUser, toggleLoggedIn, search, submit}) 
             <NavDropdown.Item>
               <Link to="/show">Show</Link>
             </NavDropdown.Item>
-          </NavDropdown>
+          </NavDropdown> */}
 
           <Nav.Item>
             {currentUser.loggedIn ? (
