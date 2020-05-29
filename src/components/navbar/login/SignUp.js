@@ -28,7 +28,7 @@ function SignUp({
       >
         <form
           onChange={handleChange}
-          onSubmit={handleSignUp}
+        
           style={{ flexGrow: 1, minHeight: "40em", margin: "auto" }}
         >
           <Grid container spacing={10}>
@@ -122,7 +122,7 @@ function SignUp({
 
             <Button
               style={{ margin: "auto", width: "70%", color: "#33ccff" }}
-              size="large"
+              size="large"  onClick={handleSignUp}
             >
               Submit
             </Button>

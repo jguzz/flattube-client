@@ -30,7 +30,6 @@ class Login extends React.Component {
           <form
             style={{ flexGrow: 1, minHeight: "40em", margin: "auto" }}
             onChange={this.handleLoginChange}
-            onSubmit={(e) => this.props.onSubmitClick(e, this.state)}
           >
             <Grid container spacing={10}>
               <Grid item xs={12}>
@@ -79,6 +78,7 @@ class Login extends React.Component {
                 }}
               >
                 <Button
+                onClick={(e) => this.props.onSubmitClick(e, this.state)}
                   style={{ margin: "auto", width: "70%", color: "#33ccff" }}
                   size="large"
                 >

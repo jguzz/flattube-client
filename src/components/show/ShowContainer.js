@@ -10,7 +10,7 @@ class ShowContainer extends Component {
     return (
       <>
         <Container>
-          <Grid container style={{minHeight:"80em", minWidth:"80%"}}>
+          <Grid container style={{ minHeight: "80em", minWidth: "80%" }}>
             <Grid item xs={12}>
               <Video video={this.props.video} />
             </Grid>
