@@ -7,8 +7,7 @@ function Video(props) {
 
     return (
       <>
-        <h1>{props.video.title}</h1>
-        <ReactPlayer url={props.video.videoURL}/>
+        <ReactPlayer width="100%" height="100%" controls={true} style={{minWidth: "100%", minHeight: "10em"}} url={props.video.videoURL}/>
       </>
     );
   
