@@ -12,7 +12,7 @@ import { Link, NavLink } from "react-router-dom";
 function NavBarContainer({videos, currentUser, toggleLoggedIn, search, submit}) {
   return (
     <>
-      <Navbar>
+      <Navbar style={{marginBottom: -40, marginTop: 15, paddingBottom:-200}}>
         <Container>
           <Navbar.Brand>
             <Link to="/">FlatTube</Link>
