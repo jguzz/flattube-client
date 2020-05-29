@@ -11,7 +11,7 @@ console.log(props.video.id)
 			<h4>{props.video.title}</h4>
 			<h5>Views: {props.video.views}</h5>
 			<h5>Uploaded: {date}</h5>
-			<button onClick={(e) => props.handleLike(e,props.video.id)}>Like</button>
+			{props.user.loggedIn ? <button onClick={(e) => props.handleLike(e, props.video.id)}>Like</button> : <h5>Please Log In to Like a video</h5>}
 			<h5>Likes: {props.displayLikes(props.video.id)}</h5>
 			<br />
 			<h5>{props.video.channelTitle}</h5>

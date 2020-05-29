@@ -160,17 +160,17 @@ class App extends React.Component {
   };
   //Handles liking a video
   handleLike = (e, id) => {
-    console.log(id)
-    e.preventDefault();
+    console.log(e)
+    // e.preventDefault();
     if (this.state.currentUser.loggedIn) {
-      
+
       const likeObj = this.state.likes.find(
         (like) =>
           like.video_id === id && like.user_id === this.state.currentUser.id
       );
-  
-      !likeObj? 
-      this.postLike({ user_id: this.state.currentUser.id, video_id: id })
+
+      !likeObj ?
+        this.postLike({ user_id: this.state.currentUser.id, video_id: id })
         : this.deleteLike(likeObj.id)
     }
 
@@ -203,8 +203,8 @@ class App extends React.Component {
     this.setState({ searchResults: results })
     this.setState({ searchClicked: true })
   }; //handles search submit
-  
-// ==================RENDER============================
+
+  // ==================RENDER============================
   render() {
     const {
       validatePassword,
@@ -242,11 +242,11 @@ class App extends React.Component {
           />
           <Route
             path="/"
-            render={() => <FlatTubeContainer searchClicked={this.state.searchClicked} videos={this.state.videos} 
-               displayLikes={this.displayLikes} handleLike={this.handleLike} searchResults={this.state.searchResults} currentUser={this.state.currentUser} users={this.state.users}/>}
-               />
-             {/* render={() => (
-               <FeaturedContainer
+            render={() => <FlatTubeContainer searchClicked={this.state.searchClicked} videos={this.state.videos}
+              displayLikes={this.displayLikes} handleLike={this.handleLike} searchResults={this.state.searchResults} currentUser={this.state.currentUser} users={this.state.users} />}
+          />
+          {/* render={() => (
+                <FeaturedContainer
                 displayLikes={this.displayLikes}
                 handleLike={this.handleLike}
                 videos={this.state.videos}
