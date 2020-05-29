@@ -31,7 +31,7 @@ class FeaturedContainer extends Component {
           />
         ) : (
           <>
-          <Typography style={{color: "white", margin: "auto", textAlign: "center"}} variant="h3">Most Popular</Typography>
+          <Typography style={{color: "white", margin: "auto", textAlign: "center", paddingTop: "1em"}} variant="h3">Most Popular</Typography>
           <Grid container spacing={5}>
             {this.props.videos.map((video) => (
               <Grid item xs={6} x={6} lg={4} xl={3}>
