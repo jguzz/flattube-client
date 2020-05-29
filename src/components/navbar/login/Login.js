@@ -1,10 +1,11 @@
 import React from "react";
 import Button from "@material-ui/core/Button";
 import TextField from "@material-ui/core/TextField";
-import Link from "@material-ui/core/Link";
+// import Link from "@material-ui/core/Link";
 import Grid from "@material-ui/core/Grid";
 import Typography from "@material-ui/core/Typography";
 import Container from "@material-ui/core/Container";
+import { Link } from "react-router-dom";
 class Login extends React.Component {
   state = {
     username: "",
@@ -77,12 +78,16 @@ class Login extends React.Component {
                   textAlign: "center",
                 }}
               >
-                <Button
-                onClick={(e) => this.props.onSubmitClick(e, this.state)}
-                  style={{ margin: "auto", width: "70%", color: "#33ccff" }}
-                  size="large"
-                >
-                  Submit
+                
+                  <Button
+                    onClick={(e) => this.props.onSubmitClick(e, this.state)}
+                    style={{ margin: "auto", width: "70%", color: "#33ccff" }}
+                    size="large"
+                    Submit
+                  >
+               <Link to="/">
+                    Log In
+                  </Link>
                 </Button>
               </Grid>
             </Grid>

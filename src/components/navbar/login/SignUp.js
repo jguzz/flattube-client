@@ -5,6 +5,7 @@ import Link from "@material-ui/core/Link";
 import Grid from "@material-ui/core/Grid";
 import Typography from "@material-ui/core/Typography";
 import Container from "@material-ui/core/Container";
+import {  Link as Direct  } from "react-router-dom";
 
 function SignUp({
   handleChange,
@@ -123,8 +124,10 @@ function SignUp({
             <Button
               style={{ margin: "auto", width: "70%", color: "#33ccff" }}
               size="large"  onClick={handleSignUp}
-            >
-              Submit
+            >  <Direct to="/">
+           Submit
+          </Direct>
+              
             </Button>
           </Grid>
         </form>
