@@ -3,7 +3,7 @@ import React from "react";
 //Represents a card for each video in the results container.
 let username = ""
 function Comment(props) {
-
+  props.users.filter(user => {if (user.id === props.user) username = user.username})
   console.log(username)
     return (
       <>
