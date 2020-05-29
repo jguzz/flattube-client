@@ -29,7 +29,6 @@ function Details(props) {
 	</Grid>
       <br />
 	  <Grid item xs={6}>
-
       <Paper square style={{width:"20em", marginRight:"auto", textAlign:"right", background: "#BBBBBB", marginLeft:"40%"}}>
         <Tabs  indicatorColor="disabled"  textColor="disabled">
           <Tab
