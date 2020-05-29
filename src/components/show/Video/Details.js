@@ -1,5 +1,6 @@
 import React from "react";
-
+import Typography from "@material-ui/core/Typography"
+import Button from "@material-ui/core/Button"
 //Represents a card for each video in the results container.
 
 function Details(props) {
@@ -8,13 +9,12 @@ let date = String(newDate)
 console.log(props.video.id)
 	return (
 		<>
-			<h4>{props.video.title}</h4>
-			<h5>Views: {props.video.views}</h5>
-			<h5>Uploaded: {date}</h5>
-			<button onClick={(e) => props.handleLike(e,props.video.id)}>Like</button>
-			<h5>Likes: {props.displayLikes(props.video.id)}</h5>
-			<br />
-			<h5>{props.video.channelTitle}</h5>
+			<Typography style={{color: "white"}} variant="h4">{props.video.title}</Typography>
+			<Typography style={{color: "white"}}>Views: {props.video.views}</Typography>
+			<Typography style={{color: "white"}}>Uploaded: {date}</Typography>
+			<Button style={{color: "white"}} onClick={(e) => props.handleLike(e,props.video.id)}>Like</Button>
+			<Typography style={{color: "white"}}>Likes: {props.displayLikes(props.video.id)}</Typography>
+			<Typography style={{color: "white"}}>{props.video.channelTitle}</Typography>
 		</>
 	);
 
