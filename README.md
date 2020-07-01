@@ -1,68 +1,74 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+# FlatTube
+![Flattube home page](./public/readme/home.png)
 
-## Available Scripts
+A clone of Youtube getting real data from the [Youtube Data API](https://developers.google.com/youtube/v3)! Developed with a React Frontend and Ruby on Rails Backend.
 
-In the project directory, you can run:
+## Demo
+A video demo can be found [here](https://youtu.be/UHLiF3zhiAo)!
 
-### `yarn start`
+## Installation 
+* Clone down the repo using `git clone https://github.com/jguzz/flattube-client.git`
+* Run `npm install` 
+* Run `npm start`
+* Ensure that you have the [backend](https://github.com/jguzz/FlatTube-Backend) running!
 
-Runs the app in the development mode.<br />
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+## Usage & Features
+* A feed of the current most popular videos 
 
-The page will reload if you make edits.<br />
-You will also see any lint errors in the console.
+![Gif showing most popular videos](./public/readme/popular.gif)
 
-### `yarn test`
+* Watch and see detailed informtation about the video.
 
-Launches the test runner in the interactive watch mode.<br />
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+![Gif showing show page of popular video](./public/readme/show.gif)
 
-### `yarn build`
+* Search for a video
 
-Builds the app for production to the `build` folder.<br />
-It correctly bundles React in production mode and optimizes the build for the best performance.
+![Gif searching for music in all videos](./public/readme/search.gif)
 
-The build is minified and the filenames include the hashes.<br />
-Your app is ready to be deployed!
+* Like and Comment on a video
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+![Photo showing video show page](./public/readme/billie.png)
 
-### `yarn eject`
+## Credits
+Code written by...
+Joseph A Guzzardo
+- [LinkedIn](https://www.linkedin.com/in/joseph-a-guzzardo/)
+- [Github](https://github.com/jguzz)
+- [Email](https://mail.google.com/mail/u/0/?view=cm&fs=1&tf=1&source=mailto&to=joseph.a.guzzardo@gmail.com)
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+Duncan Uruchima
+- [LinkedIn](https://www.linkedin.com/in/duncan-uruchima-1782959b/)
+- [Github](https://github.com/duruchima)
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+## Contribute 
+To contribute to FlatTube, follow these steps:
+- Fork this repository.
+- Create a branch: `git checkout -b <branch_name>`
+- Make your changes and commit them: `git commit -m '[commit_message]'`
+- Push to the original branch: `git push origin [project_name]/[location]`
+- Create the pull request.
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+Alternatively see the GitHub documentation on [creating a pull request](https://help.github.com/en/github/collaborating-with-issues-and-pull-requests/creating-a-pull-request).
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
 
-## Learn More
+## MIT License
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+Copyright (c) [2020] [Joseph A Guzzardo]
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
 
-### Code Splitting
+The above copyright notice and this permission notice shall be included in all
+copies or substantial portions of the Software.
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/code-splitting
-
-### Analyzing the Bundle Size
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size
-
-### Making a Progressive Web App
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app
-
-### Advanced Configuration
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/advanced-configuration
-
-### Deployment
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/deployment
-
-### `yarn build` fails to minify
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+SOFTWARE.

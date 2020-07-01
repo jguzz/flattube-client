@@ -45,7 +45,7 @@ class App extends React.Component {
     this.fetchUsers();
     this.fetchLikes();
   }
-  // ==================FETCHES============================
+  // ================== FETCHES ============================
   //Currently the most popular videos
   fetchVideos = () => {
     fetch(VIDEOS)
